@@ -1,0 +1,29 @@
+<h1>Detalle compra</h1>
+
+
+<h3><strong>Cliente: </strong></h3>
+
+<div>Nombre completo: {{compra.cliente?.nombre}} {{compra.cliente?.apellido}}</div>
+<div>Identificación: {{compra.cliente?.tipoDocumento}} - {{compra.cliente?.documento}}</div>
+
+<div class="list-container">
+    <h3><strong>Productos</strong></h3>
+    <dx-list [items]="compra.productos" height="100%">
+        <div *dxTemplate="let item of 'item'">
+            <div class="product">
+                <div>Producto: {{item.nombre}}</div>
+                <div>Descripción: {{item.descripcion}}</div>
+                <div class="price">Precio: {{item.precio | currency:'$':'symbol':'1.0'}}</div>
+                <div>Cantidad comprada: {{item.cantidad}}</div>
+            </div>
+        </div>
+    </dx-list>
+</div>
+
+<dx-button
+    text="Borrar" icon="remove" (onClick)="eliminarRegistro()" style="margin-top: 1em;">
+</dx-button>
+
+<dx-button
+    text="Ir al listado" icon="back" (onClick)="irListado()" style="margin-top: 1em;">
+</dx-button>

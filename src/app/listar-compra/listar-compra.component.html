@@ -1,0 +1,34 @@
+<h1>Listado de compra</h1>
+
+<dx-button
+    text="Crear" icon="add" (onClick)="irCrear()">
+</dx-button>
+
+<div style="margin-bottom: 1em;"></div>
+
+<dx-data-grid id="gridContainer" [dataSource]="compras" [showBorders]="true">
+  <dxo-filter-row [visible]="true"></dxo-filter-row>
+  <dxo-header-filter [visible]="true"></dxo-header-filter>
+
+  <dxi-column dataField="idCompra" caption="Id"></dxi-column>
+  <dxi-column dataField="cliente.nombre" caption="Nombre"></dxi-column>
+  <dxi-column dataField="cliente.apellido" caption="Apellido"></dxi-column>
+  <dxi-column dataField="cliente.tipoDocumento" caption="Tipo Doc."></dxi-column>
+  <dxi-column dataField="cliente.documento" caption="Documento"></dxi-column>
+  <dxi-column dataField="cantidadProductos" dataType="number" caption="Cant. Productos"></dxi-column>
+  <dxi-column dataField="valorCompra" caption="Valor total" dataType="number" format="currency"></dxi-column>
+  <dxi-column dataField="fechaCompra" dataType="date" caption="Fecha"></dxi-column>
+  <dxi-column type="buttons" [width]="110">
+    <dxi-button icon="search"  [onClick]="irDetalle"></dxi-button>
+    <dxi-button icon="edit" [onClick]="irEditar"></dxi-button>
+    <dxi-button icon="trash" [onClick]="irBorrar"></dxi-button>
+  </dxi-column>
+
+
+  <dxo-paging [pageSize]="10"></dxo-paging>
+  <dxo-pager 
+    [showPageSizeSelector]="true"
+    [allowedPageSizes]="[5, 10, 20]"
+    [showInfo]="true">
+  </dxo-pager>
+</dx-data-grid>

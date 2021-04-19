@@ -1,0 +1,14 @@
+<h1>Crear compra</h1>
+
+<dx-form id="form" [formData]="compra">
+    <dxi-item dataField="Cliente" editorType="dxSelectBox" [editorOptions]="{ items: clientes, value: '', searchEnabled: true}">
+        <dxi-validation-rule type="required" message="Cliente es requerido"></dxi-validation-rule>
+    </dxi-item>
+    <dxi-item dataField="Productos" editorType="dxSelectBox" [editorOptions]="{ items: productos, value: '', searchEnabled: true }">
+        <dxi-validation-rule type="required" message="Productos es requerido"></dxi-validation-rule>
+    </dxi-item>
+</dx-form>
+
+<dx-button
+    text="Ir al listador" icon="back" (onClick)="irListado()" style="margin-top: 1em;">
+</dx-button>
